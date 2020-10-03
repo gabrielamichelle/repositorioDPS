@@ -12,13 +12,18 @@
                         <form>
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input class="form-control" type="text" placeholder="Nombre" name="nombre" id="nombre">
+                                <input class="form-control" type="text" [(ngModel)]="cliente.nombre" placeholder="Nombre" name="nombre" id="nombre">
                             </div>
                             <div class="form-group">
                                 <label for="dui">DUI</label>
-                                <input class="form-control" type="text" placeholder="DUI" name="dui" id="dui">
+                                <input class="form-control" type="text" [(ngModel)]="cliente.dui" placeholder="DUI" name="dui" id="dui">
                             </div>
-                            <button class="btn btn-success" type="submit">Guardar</button>
+                            <div class="form-group">
+                                <label for="mascota">Nombre mascota</label>
+                                <input class="form-control" type="text" [(ngModel)]="cliente.mascota" placeholder="Nombre mascota" name="mascota" id="mascota">
+                            </div>
+                            <button class="btn btn-success" type="submit" (click)="agregar(cliente)">Guardar</button>
+                            <a routerLink="/clientes" class="btn btn-secondary ml-2">Atras</a>
                         </form>
                     </div>
                 </div>

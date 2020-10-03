@@ -21,7 +21,7 @@ const routes: Routes = [
     component: AgregarClienteComponent
   },
   {
-    path: 'modificar-cliente',
+    path: 'modificar-cliente/:id',
     component: ModificarClienteComponent
   },
   {

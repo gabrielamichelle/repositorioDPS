@@ -23,6 +23,10 @@ export class ClientesComponent implements OnInit {
   ngOnInit(): void {
     this.mostrarTodo();
   }
+  //no busca nada :(
+  busqueda(nombre: string) {
+    this.clientesService.buscarClientes(nombre).subscribe(result => {this.clients = result; console.log(result);});
+  }
 
   mostrarTodo() {
     this.clientesService.recuperarClientes().subscribe(result => this.clients = result);

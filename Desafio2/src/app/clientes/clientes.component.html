@@ -12,36 +12,41 @@
                         <div class="mb-4">
                             <a routerLink="/nuevo-cliente" class="btn btn-primary">Nuevo Cliente</a>
                         </div>
-                        <form>
+                        <form class="form-inline">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="buscar" id="buscar" placeholder="Buscar cliente...">
+                                <input type="text" class="form-control mb-2" [(ngModel)]="cliente.nombre" name="buscar" id="buscar" placeholder="Buscar cliente por nombre...">
                             </div>
+                            <button type="submit" class="btn btn-success ml-2 mb-2" (click)="busqueda(cliente.nombre)">Buscar</button>
                         </form>
                         <table class="table table-sm table-hover">
                             <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">DUI</th>
-                                <th scope="col">Visitas</th>
-                                <th scope="col">Accion</th>
-                              </tr>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">DUI</th>
+                                    <th scope="col">Mascota</th>
+                                    <th scope="col">Visitas</th>
+                                    <th scope="col">Accion</th>
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let cliente of clients">
-                                <th scope="row">{{ cliente.id }}</th>
-                                <td><a [routerLink]="['/visitas', cliente.id]">{{ cliente.nombre }}</a></td>
-                                <td>{{ cliente.dui }}</td>
-                                <td>{{ cliente.visitas }}</td>
-                                <td>
-                                    <div class="btn-group" role="group">
-                                        <a routerLink="/modificar-cliente" class="btn btn-info btn-sm">Modificar</a>
-                                        <a [routerLink]="['/nueva-visita', cliente.id, cliente.visitas]" class="btn btn-dark btn-sm">Nueva Visita</a>
-                                    </div>
-                                </td>
-                              </tr>
+                                <tr *ngFor="let cliente of clients">
+                                    <th scope="row">{{ cliente.id }}</th>
+                                    <td><a [routerLink]="['/visitas', cliente.id]">{{ cliente.nombre }}</a></td>
+                                    <td>{{ cliente.dui }}</td>
+                                    <td>{{ cliente.mascota }}</td>
+                                    <td>{{ cliente.visitas }}</td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a [routerLink]="['/modificar-cliente', cliente.id]"
+                                                class="btn btn-info btn-sm">Modificar</a>
+                                            <a [routerLink]="['/nueva-visita', cliente.id, cliente.visitas]"
+                                                class="btn btn-dark btn-sm">Nueva Visita</a>
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
-                          </table>
+                        </table>
                     </div>
                 </div>
             </div>

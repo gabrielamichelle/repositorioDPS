@@ -1,1 +1,33 @@
-<p>modificar-cliente works!</p>
+<app-menu></app-menu>
+
+<main>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 py-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Modificar Cliente</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input class="form-control" type="text" [(ngModel)]="cliente.nombre" placeholder="Nombre" name="nombre" id="nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="dui">DUI</label>
+                                <input class="form-control" type="text" [(ngModel)]="cliente.dui" placeholder="DUI" name="dui" id="dui">
+                            </div>
+                            <div class="form-group">
+                                <label for="mascota">Nombre mascota</label>
+                                <input class="form-control" type="text" [(ngModel)]="cliente.mascota" placeholder="Nombre mascota" name="mascota" id="mascota">
+                            </div>
+                            <button class="btn btn-success" type="submit" (click)="modificar(cliente)">Modificar</button>
+                            <a routerLink="/clientes" class="btn btn-secondary ml-2">Atras</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

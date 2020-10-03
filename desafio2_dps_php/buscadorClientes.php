@@ -3,7 +3,7 @@
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     require("conexion.php");
     $con=retornarConexion();
-    $registros=mysqli_query($con,"SELECT id, nombre, dui, mascota, visitas FROM clientes");
+    $registros=mysqli_query($con,"SELECT id, nombre, dui, mascota, visitas FROM clientes WHERE nombre LIKE \'%$_GET[nombre]%\'");
     $vec=[];
     while ($reg=mysqli_fetch_array($registros))
     {

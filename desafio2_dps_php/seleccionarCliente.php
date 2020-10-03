@@ -3,9 +3,8 @@
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     require("conexion.php");
     $con=retornarConexion();
-    $registros=mysqli_query($con,"SELECT id, nombre, dui, mascota, visitas FROM clientes");
-    $vec=[];
-    while ($reg=mysqli_fetch_array($registros))
+    $registros=mysqli_query($con,"SELECT id, nombre, dui, mascota, visitas FROM clientes WHERE id=$_GET[id]");
+    if ($reg=mysqli_fetch_array($registros))
     {
         $vec[]=$reg;
     }

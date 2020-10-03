@@ -29,37 +29,47 @@ export class AgregarVisitaComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       const id = params.id;
       let visit = params.visitas;
-      visit = parseInt(visit) + 1;
-      data.idCliente = id;
+      data.idCliente = id; // asignamos el id al arreglo data
+      visit = Number(visit) + 1;
+      // con estos datos haremos el update del campo visitas en la tabla clientes
       this.cliente.id = id;
       this.cliente.visitas = visit;
-      // console.log("visitas:", this.cliente.visitas);
-
       if (this.cliente.visitas >= 2 && this.cliente.visitas <= 5) {
         this.visita.costo = this.visita.costo - (this.visita.costo * 0.05);
         this.visitasService.agregarVisita(data).subscribe((result) => {
-          if (result['resultado'] == 'OK') {
+          if (result['resultado'] === 'OK') {
             this.visitasService.modificarVisitas(this.cliente).subscribe(datos => {
-              if (datos['resultado'] == 'OK') {
+              if (datos['resultado'] === 'OK') {
                 this.notificacion.success('Visita creada, Descuento 5%', 'Operacion Exitosa!');
                 this.route.navigate(['/clientes']);
               }
             });
           }
         });
-      }
-      if (this.cliente.visitas >= 6) {
+      } else if (this.cliente.visitas >= 6) {
         this.visita.costo = this.visita.costo - (this.visita.costo * 0.08);
         this.visitasService.agregarVisita(data).subscribe((result) => {
-          if (result['resultado'] == 'OK') {
+          if (result['resultado'] === 'OK') {
             this.visitasService.modificarVisitas(this.cliente).subscribe(datos => {
-              if (datos['resultado'] == 'OK') {
+              if (datos['resultado'] === 'OK') {
                 this.notificacion.success('Visita creada, Descuento 8%', 'Operacion Exitosa!');
                 this.route.navigate(['/clientes']);
               }
             });
           }
         });
+      }else {
+        this.cliente.visitas = 1;
+        this.visitasService.agregarVisita(data).subscribe((result) => {
+          if (result['resultado'] === 'OK') {
+            this.visitasService.modificarVisitas(this.cliente).subscribe(datos => {
+              if (datos['resultado'] === 'OK') {
+                this.notificacion.success('Visita creada', 'Operacion Exitosa!');
+                this.route.navigate(['/clientes']);
+              }
+            });
+          }
+      });
       }
     });
   }
