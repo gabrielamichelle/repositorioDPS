@@ -26,5 +26,5 @@ export class ArticulosService {
 
   modificacion(articulo) {
     return this.http.post(`${this.url}modificacion.php`, JSON.stringify(articulo));
-    }
+  }
 }

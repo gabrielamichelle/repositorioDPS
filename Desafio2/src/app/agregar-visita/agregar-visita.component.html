@@ -10,23 +10,24 @@
                     </div>
                     <div class="card-body">
                         <form>
+                            <input class="form-control" type="text" [(ngModel)]="visita.idCliente" placeholder="Id cliente" name="id" id="id">
                             <div class="form-group">
                                 <label for="cliente">Cliente</label>
-                                <input class="form-control" type="text" placeholder="Cliente" name="cliente" id="cliente">
+                                <input class="form-control" type="text" placeholder="Cliente" name="cliente" id="cliente" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="tratamiento">Tratamiento</label>
-                                <input class="form-control" type="text" placeholder="Tratamiento" name="tratamiento" id="tratamiento">
+                                <input class="form-control" type="text" [(ngModel)]="visita.tratamiento" placeholder="Tratamiento" name="tratamiento" id="tratamiento">
                             </div>
                             <div class="form-group">
                                 <label for="medicamento">Medicamento</label>
-                                <input class="form-control" type="text" placeholder="Medicamento" name="medicamento" id="medicamento">
+                                <input class="form-control" type="text" [(ngModel)]="visita.medicamento" placeholder="Medicamento" name="medicamento" id="medicamento">
                             </div>
                             <div class="form-group">
                                 <label for="total">Total</label>
-                                <input class="form-control" type="text" placeholder="Total" name="total" id="total">
+                                <input class="form-control" type="text" [(ngModel)]="visita.costo" placeholder="Total" name="total" id="total">
                             </div>
-                            <button class="btn btn-success" type="submit">Guardar</button>
+                            <button class="btn btn-success" type="submit" (click)="agregar(visita)">Guardar</button>
                         </form>
                     </div>
                 </div>

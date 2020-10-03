@@ -5,8 +5,8 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 py-3">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Visitas de: Lola Navarrete</h5>
+                    <div class="card-header" *ngIf="visita">
+                        <h5>Visitas de: </h5>
                     </div>
                     <div class="card-body">
                         <table class="table table-sm table-hover">
@@ -20,13 +20,13 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Cariñitos</td>
-                                <td>Abrazos</td>
-                                <td>$1000000</td>
+                              <tr *ngFor="let visita of visits">
+                                <th scope="row">{{ visita.id }}</th>
+                                <td>{{ visita.tratamiento }}</td>
+                                <td>{{ visita.medicamento }}</td>
+                                <td>${{ visita.costo }}</td>
                                 <td>
-                                    <a href="/" class="btn btn-danger btn-sm">Borrar</a>
+                                    <button class="btn btn-danger btn-sm" (click)="borrar(visita.id)">Borrar</button>
                                 </td>
                               </tr>
                             </tbody>

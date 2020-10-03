@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +13,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { VisitasComponent } from './visitas/visitas.component';
 import { MenuComponent } from './menu/menu.component';
 import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
+import { ClientePruebaComponent } from './cliente-prueba/cliente-prueba.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +23,16 @@ import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente
     ClientesComponent,
     VisitasComponent,
     MenuComponent,
-    ModificarClienteComponent
+    ModificarClienteComponent,
+    ClientePruebaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
