@@ -28,15 +28,15 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Lola Navarrete</td>
-                                <td>123456789</td>
-                                <td>3</td>
+                              <tr *ngFor="let cliente of clients">
+                                <th scope="row">{{ cliente.id }}</th>
+                                <td><a [routerLink]="['/visitas', cliente.id]">{{ cliente.nombre }}</a></td>
+                                <td>{{ cliente.dui }}</td>
+                                <td>{{ cliente.visitas }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
                                         <a routerLink="/modificar-cliente" class="btn btn-info btn-sm">Modificar</a>
-                                        <a routerLink="/nueva-visita" class="btn btn-dark btn-sm">Nueva Visita</a>
+                                        <a [routerLink]="['/nueva-visita', cliente.id, cliente.visitas]" class="btn btn-dark btn-sm">Nueva Visita</a>
                                     </div>
                                 </td>
                               </tr>

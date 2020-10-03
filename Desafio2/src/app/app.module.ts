@@ -13,7 +13,6 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { VisitasComponent } from './visitas/visitas.component';
 import { MenuComponent } from './menu/menu.component';
 import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
-import { ClientePruebaComponent } from './cliente-prueba/cliente-prueba.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { ClientePruebaComponent } from './cliente-prueba/cliente-prueba.componen
     ClientesComponent,
     VisitasComponent,
     MenuComponent,
-    ModificarClienteComponent,
-    ClientePruebaComponent
+    ModificarClienteComponent
   ],
   imports: [
     BrowserModule,

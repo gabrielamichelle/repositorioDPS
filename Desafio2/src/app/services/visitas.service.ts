@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Visita } from '../models/visita';
+import { Cliente } from '../models/cliente';
 import { Observable } from 'rxjs';
 
 
@@ -13,8 +14,8 @@ export class VisitasService {
     private http: HttpClient
   ) { }
 
-  recuperarVisitas(): Observable<any> {
-    return this.http.get(`${this.url}recuperarVisitas.php`);
+  recuperarVisitas(id: number): Observable<any> {
+    return this.http.get(`${this.url}recuperarVisitas.php?id=${id}`);
   }
 
   agregarVisita(data: Visita): Observable<any> {
@@ -23,5 +24,13 @@ export class VisitasService {
 
   borrarVisita(id: number): Observable<any> {
     return this.http.get(`${this.url}borrarVisita.php?id=${id}`);
+  }
+
+  /*seleccionarClienteData(id: number): Observable<any> {
+    return this.http.get(`${this.url}seleccionarClienteData.php?id=${id}`);
+  }*/
+
+  modificarVisitas(data: Cliente): Observable<any> {
+    return this.http.post(`${this.url}modificarVisitas.php`, data);
   }
 }

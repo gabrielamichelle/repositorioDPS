@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Cliente } from '../models/cliente';
+import { ClientesService } from '../services/clientes.service';
+import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-clientes',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientesComponent implements OnInit {
 
-  constructor() { }
+  cliente: Cliente = new Cliente();
+  clients: Observable<Cliente[]>;
+  // @Input() idCliente: Cliente;
+
+  constructor(
+    private clientesService: ClientesService,
+    private notificacion: ToastrService
+  ) { }
 
   ngOnInit(): void {
+    this.mostrarTodo();
   }
 
+  mostrarTodo() {
+    this.clientesService.recuperarClientes().subscribe(result => this.clients = result);
+  }
 }

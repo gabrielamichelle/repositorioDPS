@@ -25,11 +25,11 @@ const routes: Routes = [
     component: ModificarClienteComponent
   },
   {
-    path: 'visitas',
+    path: 'visitas/:id',
     component: VisitasComponent
   },
   {
-    path: 'nueva-visita',
+    path: 'nueva-visita/:id/:visitas',
     component: AgregarVisitaComponent
   }
 ];
