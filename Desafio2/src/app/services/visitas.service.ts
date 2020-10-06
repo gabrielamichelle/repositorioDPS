@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class VisitasService {
   private url = 'http://localhost/EJERCICIOS/desafio2_dps_php/';
+  // private url = 'https://desafio02-dps.000webhostapp.com/desafio2_dps_php/';
+  // private url = 'http://deafio02-dps.unaux.com/desafio2_dps_php/';
   constructor(
     private http: HttpClient
   ) { }

@@ -12,12 +12,6 @@
                         <div class="mb-4">
                             <a routerLink="/nuevo-cliente" class="btn btn-primary">Nuevo Cliente</a>
                         </div>
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <input type="text" class="form-control mb-2" [(ngModel)]="cliente.nombre" name="buscar" id="buscar" placeholder="Buscar cliente por nombre...">
-                            </div>
-                            <button type="submit" class="btn btn-success ml-2 mb-2" (click)="busqueda(cliente.nombre)">Buscar</button>
-                        </form>
                         <table class="table table-sm table-hover">
                             <thead class="thead-dark">
                                 <tr>

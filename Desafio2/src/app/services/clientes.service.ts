@@ -9,18 +9,14 @@ import { Observable } from 'rxjs';
 export class ClientesService {
 
   private url = 'http://localhost/EJERCICIOS/desafio2_dps_php/';
+  // private url = 'https://desafio02-dps.000webhostapp.com/desafio2_dps_php/';
+  // private url = 'http://deafio02-dps.unaux.com/desafio2_dps_php/';
   constructor(
     private http: HttpClient
   ) {}
 
   recuperarClientes(): Observable<any> {
     return this.http.get(`${this.url}recuperarClientes.php`);
-  }
-
-  // el error esta en el archivo php y el esta funcion a la hora de enviar el parametro 
-  // pero no se como arrglarlo xd
-  buscarClientes(nombre: string): Observable<any> {
-    return this.http.get(`${this.url}buscadorClientes.php?nombre=${nombre}`);
   }
 
   seleccionarCliente(id: number): Observable<any> {

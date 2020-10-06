@@ -14,6 +14,21 @@ import { VisitasComponent } from './visitas/visitas.component';
 import { MenuComponent } from './menu/menu.component';
 import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente.component';
 
+// Auth service
+import { AuthService } from "./services/auth.service";
+
+//firebase
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +37,12 @@ import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente
     ClientesComponent,
     VisitasComponent,
     MenuComponent,
-    ModificarClienteComponent
+    ModificarClienteComponent,
+    DashboardComponent,
+    ForgotPasswordComponent,
+    SignInComponent,
+    SignUpComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +50,12 @@ import { ModificarClienteComponent } from './modificar-cliente/modificar-cliente
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
