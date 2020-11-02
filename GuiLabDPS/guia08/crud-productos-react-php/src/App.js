@@ -4,8 +4,9 @@ import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 import axios from 'axios';
 
 function App() {
-  // const baseUrl="http://localhost/apiPhpEscuela/";
-  const baseUrl="http://localhost/EJERCICIOS/apiPhpReactProductos/";
+  // const baseUrl="http://localhost/EJERCICIOS/apiPhpReactProductos/";
+  // guia08-dps-crud-productos.000webhostapp.com
+  const baseUrl="https://guia08-dps-crud-productos.000webhostapp.com/apiPhpReactProductos/";
   const [data, setData]=useState([]);
   const [modalInsertar, setModalInsertar]= useState(false);
   const [modalEditar, setModalEditar]= useState(false);
